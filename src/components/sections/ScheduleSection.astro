@@ -1,0 +1,44 @@
+---
+import type { Dictionary } from '@/lib/i18n';
+
+interface Props {
+  copy: Dictionary;
+}
+
+const { copy } = Astro.props;
+---
+
+<section id="schedule" class="scroll-mt-20 border-b border-temple-snow/10 py-16 md:py-20">
+  <div class="container-shell">
+    <p class="section-eyebrow">{copy.schedule.eyebrow}</p>
+    <h2 class="mt-2 text-3xl font-bold text-temple-snow md:text-4xl">{copy.schedule.title}</h2>
+    <p class="mt-4 max-w-2xl text-temple-snow/80">{copy.schedule.description}</p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <article class="rounded-xl border border-temple-snow/10 bg-temple-charcoal/25 p-6">
+        <h3 class="font-semibold text-temple-accent">{copy.schedule.adultsLabel}</h3>
+        <p class="mt-1 text-sm text-temple-snow/70">{copy.schedule.adultsWhen}</p>
+        <ul class="mt-4 space-y-2 text-sm text-temple-snow/90">
+          {copy.schedule.adultsTimes.map((time) => (
+            <li>{time}</li>
+          ))}
+        </ul>
+      </article>
+      <article class="rounded-xl border border-temple-snow/10 bg-temple-charcoal/25 p-6">
+        <h3 class="font-semibold text-temple-accent">{copy.schedule.kidsLabel}</h3>
+        <p class="mt-1 text-sm text-temple-snow/70">{copy.schedule.kidsWhen}</p>
+        <p class="mt-4 text-sm text-temple-snow/90">{copy.schedule.kidsTime}</p>
+      </article>
+      <article class="rounded-xl border border-temple-snow/10 bg-temple-charcoal/25 p-6">
+        <h3 class="font-semibold text-temple-accent">{copy.schedule.openMatLabel}</h3>
+        <p class="mt-1 text-sm text-temple-snow/70">{copy.schedule.openMatWhen}</p>
+        <p class="mt-4 text-sm font-medium text-temple-snow/90">{copy.schedule.openMatTime}</p>
+        <p class="mt-3 text-sm text-temple-snow/75">{copy.schedule.openMatNote}</p>
+      </article>
+    </div>
+
+    <p class="mt-8 rounded-lg border border-temple-accent/30 bg-temple-accent/5 px-5 py-4 text-sm text-temple-snow/90">
+      {copy.schedule.beginnerNote}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+import CtaLink from '@/components/CtaLink.astro';
+import { siteConfig } from '@/config/site';
+import type { Dictionary } from '@/lib/i18n';
+import type { Locale } from '@/lib/i18n';
+import { trialUrl } from '@/lib/urls';
+
+interface Props {
+  locale: Locale;
+  copy: Dictionary;
+}
+
+const { locale, copy } = Astro.props;
+const { business } = siteConfig;
+---
+
+<section id="contact" class="scroll-mt-20 py-16 md:py-20">
+  <div class="container-shell">
+    <p class="section-eyebrow">{copy.cta.eyebrow}</p>
+    <h2 class="mt-2 text-3xl font-bold text-temple-snow md:text-4xl">{copy.cta.title}</h2>
+    <p class="mt-4 max-w-xl text-temple-snow/80">{copy.cta.description}</p>
+
+    <div class="cta-grid cta-grid--contact mt-10">
+      <CtaLink href={`tel:${business.phoneTel}`} event="cta_call" variant="outline" class="cta-btn--block">
+        {copy.cta.call}
+      </CtaLink>
+      <CtaLink href={`sms:${business.smsTel}`} event="cta_text" variant="outline" class="cta-btn--block">
+        {copy.cta.text}
+      </CtaLink>
+      <CtaLink href={`mailto:${business.email}`} event="cta_email" variant="outline" class="cta-btn--block">
+        {copy.cta.email}
+      </CtaLink>
+      <CtaLink
+        href={business.mapUrl}
+        event="cta_directions"
+        variant="outline"
+        class="cta-btn--block"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.cta.directions}
+      </CtaLink>
+      <CtaLink
+        href={trialUrl(locale)}
+        event="cta_free_class"
+        variant="primary"
+        class="cta-btn--block cta-grid__span-2"
+      >
+        {copy.cta.bookFreeClass}
+      </CtaLink>
+    </div>
+
+    <address class="mt-10 not-italic text-sm text-temple-snow/70">
+      <p>{business.addressLine1}</p>
+      <p>{business.cityStateZip}</p>
+      <p class="mt-2">{business.phone}</p>
+      <p>{business.email}</p>
+    </address>
+  </div>
+</section>

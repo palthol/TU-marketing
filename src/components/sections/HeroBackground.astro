@@ -1,0 +1,32 @@
+---
+import { heroBackgroundSlides, heroSlideDurationSec } from '@/config/hero-media';
+
+const slides = heroBackgroundSlides;
+const multiSlide = slides.length > 1;
+const cycleSec = heroSlideDurationSec * slides.length;
+---
+
+<div class="hero-bg" aria-hidden="true">
+  {slides.map((slide, index) => (
+    <div
+      class:list={['hero-bg__frame', multiSlide && 'hero-bg__frame--carousel']}
+      style={multiSlide ? `--slide-index: ${index}; --cycle-sec: ${cycleSec}s; --slide-sec: ${heroSlideDurationSec}s` : undefined}
+    >
+      <picture>
+        <source media="(min-width: 1200px)" srcset={`/images/${slide.base}-1920.webp`} type="image/webp" />
+        <source media="(min-width: 768px)" srcset={`/images/${slide.base}-1200.webp`} type="image/webp" />
+        <source srcset={`/images/${slide.base}-768.webp`} type="image/webp" />
+        <img
+          class="hero-bg__image"
+          src={`/images/${slide.base}-768.webp`}
+          alt=""
+          loading={index === 0 ? 'eager' : 'lazy'}
+          fetchpriority={index === 0 ? 'high' : 'low'}
+          decoding="async"
+        />
+      </picture>
+    </div>
+  ))}
+  <div class="hero-bg__scrim"></div>
+  <div class="hero-bg__glow"></div>
+</div>

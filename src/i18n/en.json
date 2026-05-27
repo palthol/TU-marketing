@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Temple Underground | Free First Class — Boxing & BJJ",
+    "description": "Temple Underground in Morristown, Tennessee. Integrated Vale Tudo-style training: boxing, Brazilian Jiu-Jitsu, and combat conditioning. Your first class is free."
+  },
+  "nav": {
+    "why": "Why Us",
+    "schedule": "Schedule",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "mainSite": "Full website",
+    "langSwitch": "Español"
+  },
+  "hero": {
+    "eyebrow": "Morristown, Tennessee",
+    "titleLine1": "Temple Underground",
+    "titleLine2": "Vale Tudo",
+    "subtitle": "Boxing & Brazilian Jiu-Jitsu as one integrated combat system.",
+    "firstClassFree": "First class free",
+    "bookTrial": "Book your free class",
+    "call": "Call",
+    "text": "Text",
+    "directions": "Directions",
+    "quickContact": "Quick contact"
+  },
+  "why": {
+    "eyebrow": "Why Temple Underground",
+    "title": "A complete system. A disciplined room.",
+    "description": "We teach striking and grappling together — structure, breath, and pressure under coach-led standards.",
+    "bullets": [
+      "Integrated striking and grappling — not separate silos",
+      "Coach-led progression with real competition experience",
+      "Beginner-friendly fundamentals with room for serious athletes",
+      "Structure, breath, and movement as training pillars",
+      "Community built on accountability and respect"
+    ],
+    "mainSiteLink": "Explore programs on our main site"
+  },
+  "schedule": {
+    "eyebrow": "Schedule",
+    "title": "Train on your schedule",
+    "description": "Weekday blocks for adults and kids, plus Sunday open mat for extra mat time.",
+    "adultsLabel": "Adult classes",
+    "adultsWhen": "Monday–Thursday",
+    "adultsTimes": ["7:00 AM – 9:00 AM", "4:00 PM – 6:00 PM", "7:00 PM – 9:00 PM"],
+    "kidsLabel": "Kids classes",
+    "kidsWhen": "Monday–Thursday",
+    "kidsTime": "6:00 PM – 7:00 PM",
+    "openMatLabel": "Open mat",
+    "openMatWhen": "Sunday",
+    "openMatTime": "3:00 PM",
+    "openMatNote": "Open mat is self-directed training: drill, spar, study positions, and train with teammates.",
+    "beginnerNote": "New to martial arts? Start with any beginner-friendly class — your first visit is free."
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Simple, scannable plans",
+    "firstClassBanner": "Your first class is completely free.",
+    "dropInLabel": "Group class drop-in",
+    "dropInPrice": "$20",
+    "dropInDetail": "Per class — great for travelers or trying the gym.",
+    "monthlyTitle": "Monthly memberships",
+    "monthlyNote": "Plans are built around how often you train. Consistency and open mat multiply the value.",
+    "tier100": {
+      "price": "$100",
+      "per": "/ month",
+      "detail": "1 weekday group class per week + Sunday open mat"
+    },
+    "tier150": {
+      "price": "$150",
+      "per": "/ month",
+      "detail": "2 weekday group classes per week + Sunday open mat"
+    },
+    "tier200": {
+      "price": "$200",
+      "per": "/ month",
+      "detail": "Unlimited weekday group classes + Sunday open mat"
+    }
+  },
+  "cta": {
+    "eyebrow": "Get started",
+    "title": "Take your free class",
+    "description": "Call, text, or email — or book online. We will help you pick the right class.",
+    "call": "Call",
+    "text": "Text",
+    "email": "Email",
+    "directions": "Directions",
+    "bookFreeClass": "Book free class",
+    "stickyLabel": "Free first class"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "location": "Morristown, Tennessee"
+  }
+}

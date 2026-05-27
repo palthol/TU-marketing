@@ -1,0 +1,65 @@
+---
+import CtaLink from '@/components/CtaLink.astro';
+import MobileNav from '@/islands/MobileNav';
+import { siteConfig } from '@/config/site';
+import type { Dictionary } from '@/lib/i18n';
+import type { Locale } from '@/lib/i18n';
+import { alternateLocale, localePath, trialUrl } from '@/lib/urls';
+
+interface Props {
+  locale: Locale;
+  copy: Dictionary;
+}
+
+const { locale, copy } = Astro.props;
+const alt = alternateLocale(locale);
+const navItems = [
+  { href: '#why', label: copy.nav.why },
+  { href: '#schedule', label: copy.nav.schedule },
+  { href: '#pricing', label: copy.nav.pricing },
+  { href: '#contact', label: copy.nav.contact },
+];
+---
+
+<header class="sticky top-0 z-30 border-b border-temple-snow/10 bg-temple-ink/90 backdrop-blur">
+  <div class="container-shell flex h-16 items-center justify-between gap-4">
+    <a href={localePath(locale)} class="text-sm font-bold tracking-wide text-temple-snow">
+      {siteConfig.business.name}
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex">
+      {navItems.map((item) => (
+        <a href={item.href} class="text-sm text-temple-snow/80 hover:text-temple-accent">
+          {item.label}
+        </a>
+      ))}
+      <a href={localePath(alt)} class="text-sm text-temple-accent">
+        {copy.nav.langSwitch}
+      </a>
+      <a
+        href={siteConfig.urls.primaryWebsite}
+        data-track="cta_main_site"
+        class="text-sm text-temple-snow/70 hover:text-temple-accent"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.nav.mainSite}
+      </a>
+      <CtaLink href={trialUrl(locale)} event="cta_free_class" variant="primary" class="cta-btn--compact">
+        {copy.hero.bookTrial}
+      </CtaLink>
+    </nav>
+
+    <MobileNav
+      client:visible
+      brand={siteConfig.business.name}
+      items={navItems}
+      langHref={localePath(alt)}
+      langLabel={copy.nav.langSwitch}
+      mainSiteHref={siteConfig.urls.primaryWebsite}
+      mainSiteLabel={copy.nav.mainSite}
+      trialHref={trialUrl(locale)}
+      trialLabel={copy.hero.bookTrial}
+    />
+  </div>
+</header>
