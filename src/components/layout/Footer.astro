@@ -1,0 +1,45 @@
+---
+import CtaLink from '@/components/CtaLink.astro';
+import { siteConfig } from '@/config/site';
+import type { Dictionary } from '@/lib/i18n';
+import type { Locale } from '@/lib/i18n';
+import { alternateLocale, localePath } from '@/lib/urls';
+
+interface Props {
+  locale: Locale;
+  copy: Dictionary;
+}
+
+const { locale, copy } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-temple-snow/10 bg-temple-charcoal/40 py-12">
+  <div class="container-shell flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+    <div>
+      <p class="font-semibold text-temple-snow">{siteConfig.business.name}</p>
+      <p class="mt-2 text-sm text-temple-snow/70">{siteConfig.business.addressLine1}</p>
+      <p class="text-sm text-temple-snow/70">{copy.footer.location}</p>
+      <p class="mt-2 text-sm text-temple-snow/70">{siteConfig.business.phone}</p>
+      <p class="text-sm text-temple-snow/70">{siteConfig.business.email}</p>
+    </div>
+    <div class="flex flex-col gap-2 text-sm">
+      <a href={localePath(alternateLocale(locale))} class="text-temple-accent">
+        {copy.nav.langSwitch}
+      </a>
+      <CtaLink
+        href={siteConfig.urls.primaryWebsite}
+        event="cta_main_site"
+        variant="link"
+        class="!inline-flex w-fit"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.nav.mainSite}
+      </CtaLink>
+    </div>
+  </div>
+  <p class="container-shell mt-8 text-xs text-temple-snow/50">
+    © {year} {siteConfig.business.name}. {copy.footer.rights}
+  </p>
+</footer>

@@ -1,0 +1,24 @@
+---
+import type { AnalyticsEvent } from '@/lib/analytics';
+
+interface Props {
+  href: string;
+  event: AnalyticsEvent;
+  variant?: 'primary' | 'outline' | 'link';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const { href, event, variant = 'outline', class: className, target, rel } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['cta-btn', `cta-btn--${variant}`, 'focus-ring', className]}
+  data-track={event}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>

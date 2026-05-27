@@ -1,0 +1,45 @@
+---
+import type { Dictionary } from '@/lib/i18n';
+
+interface Props {
+  copy: Dictionary;
+}
+
+const { copy } = Astro.props;
+const tiers = [copy.pricing.tier100, copy.pricing.tier150, copy.pricing.tier200];
+---
+
+<section id="pricing" class="scroll-mt-20 border-b border-temple-snow/10 py-16 md:py-20">
+  <div class="container-shell">
+    <p class="section-eyebrow">{copy.pricing.eyebrow}</p>
+    <h2 class="mt-2 text-3xl font-bold text-temple-snow md:text-4xl">{copy.pricing.title}</h2>
+
+    <p class="mt-6 rounded-lg bg-temple-red/20 px-5 py-4 text-center font-semibold text-temple-snow">
+      {copy.pricing.firstClassBanner}
+    </p>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <article class="rounded-xl border border-temple-snow/10 p-6">
+        <h3 class="text-lg font-semibold">{copy.pricing.dropInLabel}</h3>
+        <p class="mt-2 text-4xl font-bold text-temple-accent">{copy.pricing.dropInPrice}</p>
+        <p class="mt-2 text-sm text-temple-snow/75">{copy.pricing.dropInDetail}</p>
+      </article>
+      <article class="rounded-xl border border-temple-snow/10 p-6 md:col-span-1">
+        <h3 class="text-lg font-semibold">{copy.pricing.monthlyTitle}</h3>
+        <p class="mt-2 text-sm text-temple-snow/75">{copy.pricing.monthlyNote}</p>
+      </article>
+    </div>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      {tiers.map((tier) => (
+        <article class="rounded-xl border border-temple-snow/10 bg-temple-charcoal/20 p-6">
+          <p class="text-3xl font-bold text-temple-accent">
+            {tier.price}
+            <span class="text-base font-normal text-temple-snow/70">{tier.per}</span>
+          </p>
+          <p class="mt-3 text-sm text-temple-snow/85">{tier.detail}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

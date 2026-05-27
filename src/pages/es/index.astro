@@ -1,0 +1,40 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import HeroSection from '@/components/sections/HeroSection.astro';
+import PricingSection from '@/components/sections/PricingSection.astro';
+import ScheduleSection from '@/components/sections/ScheduleSection.astro';
+import WhySection from '@/components/sections/WhySection.astro';
+import StickyCTA from '@/components/layout/StickyCTA.astro';
+import { siteConfig } from '@/config/site';
+import { t } from '@/lib/i18n';
+import { trialUrl } from '@/lib/urls';
+
+const locale = 'es';
+const copy = t(locale);
+---
+
+<BaseLayout
+  title={copy.seo.title}
+  description={copy.seo.description}
+  locale={locale}
+  canonicalPath="/es/"
+>
+  <Header locale={locale} copy={copy} />
+  <main>
+    <HeroSection locale={locale} copy={copy} />
+    <WhySection copy={copy} />
+    <ScheduleSection copy={copy} />
+    <PricingSection copy={copy} />
+    <CTASection locale={locale} copy={copy} />
+  </main>
+  <Footer locale={locale} copy={copy} />
+  <StickyCTA
+    label={copy.cta.stickyLabel}
+    trialHref={trialUrl(locale)}
+    phoneHref={`tel:${siteConfig.business.phoneTel}`}
+    callLabel={copy.cta.call}
+  />
+</BaseLayout>

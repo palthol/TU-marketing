@@ -1,0 +1,38 @@
+---
+import CtaLink from '@/components/CtaLink.astro';
+import { siteConfig } from '@/config/site';
+import type { Dictionary } from '@/lib/i18n';
+
+interface Props {
+  copy: Dictionary;
+}
+
+const { copy } = Astro.props;
+---
+
+<section id="why" class="scroll-mt-20 border-b border-temple-snow/10 py-16 md:py-20">
+  <div class="container-shell">
+    <p class="section-eyebrow">{copy.why.eyebrow}</p>
+    <h2 class="mt-2 max-w-2xl text-3xl font-bold tracking-tight text-temple-snow md:text-4xl">
+      {copy.why.title}
+    </h2>
+    <p class="mt-4 max-w-2xl text-temple-snow/80">{copy.why.description}</p>
+    <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+      {copy.why.bullets.map((bullet) => (
+        <li class="rounded-lg border border-temple-snow/10 bg-temple-charcoal/30 px-5 py-4 text-sm text-temple-snow/90">
+          {bullet}
+        </li>
+      ))}
+    </ul>
+    <CtaLink
+      href={siteConfig.urls.primaryWebsite}
+      event="cta_main_site"
+      variant="link"
+      class="mt-8"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {copy.why.mainSiteLink} →
+    </CtaLink>
+  </div>
+</section>

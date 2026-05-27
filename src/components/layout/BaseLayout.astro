@@ -1,0 +1,58 @@
+---
+import '@/styles/global.css';
+import { siteConfig } from '@/config/site';
+import type { Locale } from '@/lib/i18n';
+import { locales } from '@/lib/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  canonicalPath: string;
+}
+
+const { title, description, locale, canonicalPath } = Astro.props;
+const site = Astro.site ?? new URL('https://go.templeunderground.com');
+const canonical = new URL(canonicalPath, site).href;
+
+const alternates = locales.map((loc) => ({
+  locale: loc,
+  href: new URL(`/${loc}/`, site).href,
+}));
+
+const plausibleDomain = siteConfig.analytics.plausibleDomain;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={alternates.find((a) => a.locale === 'en')?.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_US' : 'en_US'} />
+    <meta property="og:type" content="website" />
+    {plausibleDomain && (
+      <script
+        defer
+        data-domain={plausibleDomain}
+        src="https://plausible.io/js/script.js"
+      />
+    )}
+  </head>
+  <body class="pb-20 md:pb-0">
+    <slot />
+    <script>
+      import '@/scripts/cta-delegate';
+    </script>
+  </body>
+</html>

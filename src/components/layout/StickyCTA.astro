@@ -1,0 +1,23 @@
+---
+import CtaLink from '@/components/CtaLink.astro';
+
+interface Props {
+  label: string;
+  trialHref: string;
+  phoneHref: string;
+  callLabel: string;
+}
+
+const { label, trialHref, phoneHref, callLabel } = Astro.props;
+---
+
+<div class="sticky-cta-bar">
+  <div class="container-shell sticky-cta-inner">
+    <CtaLink href={phoneHref} event="cta_call" variant="outline" class="cta-btn--compact">
+      {callLabel}
+    </CtaLink>
+    <CtaLink href={trialHref} event="cta_free_class" variant="primary" class="cta-btn--compact">
+      {label}
+    </CtaLink>
+  </div>
+</div>

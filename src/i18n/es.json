@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "Temple Underground | Primera clase gratis — Boxeo y BJJ",
+    "description": "Temple Underground en Morristown, Tennessee. Entrenamiento integrado estilo Vale Tudo: boxeo, Jiu-Jitsu brasileño y acondicionamiento de combate. Tu primera clase es gratis."
+  },
+  "nav": {
+    "why": "Por qué",
+    "schedule": "Horario",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "mainSite": "Sitio completo",
+    "langSwitch": "English"
+  },
+  "hero": {
+    "eyebrow": "Morristown, Tennessee",
+    "titleLine1": "Temple Underground",
+    "titleLine2": "Vale Tudo",
+    "subtitle": "Boxeo y Jiu-Jitsu brasileño como un solo sistema de combate integrado.",
+    "firstClassFree": "Primera clase gratis",
+    "bookTrial": "Reserva tu clase gratis",
+    "call": "Llamar",
+    "text": "Mensaje",
+    "directions": "Cómo llegar",
+    "quickContact": "Contacto rápido"
+  },
+  "why": {
+    "eyebrow": "Por qué Temple Underground",
+    "title": "Un sistema completo. Un ambiente disciplinado.",
+    "description": "Enseñamos striking y grappling juntos — estructura, respiración y presión bajo estándares de coaches.",
+    "bullets": [
+      "Striking y grappling integrados — no en silos separados",
+      "Progresión guiada por coaches con experiencia en competición",
+      "Fundamentos accesibles para principiantes y atletas serios",
+      "Estructura, respiración y movimiento como pilares",
+      "Comunidad basada en responsabilidad y respeto"
+    ],
+    "mainSiteLink": "Ver programas en nuestro sitio principal"
+  },
+  "schedule": {
+    "eyebrow": "Horario",
+    "title": "Entrena según tu horario",
+    "description": "Bloques entre semana para adultos y niños, más open mat dominical para más tiempo en el tatami.",
+    "adultsLabel": "Clases para adultos",
+    "adultsWhen": "Lunes a jueves",
+    "adultsTimes": ["7:00 AM – 9:00 AM", "4:00 PM – 6:00 PM", "7:00 PM – 9:00 PM"],
+    "kidsLabel": "Clases para niños",
+    "kidsWhen": "Lunes a jueves",
+    "kidsTime": "6:00 PM – 7:00 PM",
+    "openMatLabel": "Open mat",
+    "openMatWhen": "Domingo",
+    "openMatTime": "3:00 PM",
+    "openMatNote": "Open mat es entrenamiento autodirigido: drills, sparring, estudio de posiciones y trabajo en equipo.",
+    "beginnerNote": "¿Nuevo en artes marciales? Empieza con cualquier clase para principiantes — tu primera visita es gratis."
+  },
+  "pricing": {
+    "eyebrow": "Precios",
+    "title": "Planes claros y fáciles de leer",
+    "firstClassBanner": "Tu primera clase es completamente gratis.",
+    "dropInLabel": "Clase grupal suelta",
+    "dropInPrice": "$20",
+    "dropInDetail": "Por clase — ideal para viajeros o para probar el gym.",
+    "monthlyTitle": "Membresías mensuales",
+    "monthlyNote": "Los planes se basan en la frecuencia con la que entrenas. La constancia y el open mat multiplican el valor.",
+    "tier100": {
+      "price": "$100",
+      "per": "/ mes",
+      "detail": "1 clase grupal entre semana por semana + open mat dominical"
+    },
+    "tier150": {
+      "price": "$150",
+      "per": "/ mes",
+      "detail": "2 clases grupales entre semana por semana + open mat dominical"
+    },
+    "tier200": {
+      "price": "$200",
+      "per": "/ mes",
+      "detail": "Clases grupales ilimitadas entre semana + open mat dominical"
+    }
+  },
+  "cta": {
+    "eyebrow": "Comienza hoy",
+    "title": "Toma tu clase gratis",
+    "description": "Llama, envía mensaje o escribe — o reserva en línea. Te ayudamos a elegir la clase correcta.",
+    "call": "Llamar",
+    "text": "Mensaje",
+    "email": "Correo",
+    "directions": "Cómo llegar",
+    "bookFreeClass": "Reservar clase gratis",
+    "stickyLabel": "Primera clase gratis"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "location": "Morristown, Tennessee"
+  }
+}
