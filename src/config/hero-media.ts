@@ -10,6 +10,32 @@ export type HeroBackgroundSlide = {
   alt: string;
 };
 
+/** Static mobile hero strips — one discipline per row, no carousel */
+export type HeroMobileStrip = {
+  base: string;
+  alt: string;
+  discipline: 'boxing' | 'bjj' | 'wrestling';
+};
+
+/** Three disciplines for the mobile stacked strip layout (480px WebP) */
+export const heroMobileStrips: HeroMobileStrip[] = [
+  {
+    base: 'over_shoulder_jab',
+    alt: 'Boxing training at Temple Underground',
+    discipline: 'boxing',
+  },
+  {
+    base: 'bullfight',
+    alt: 'Brazilian Jiu-Jitsu training at Temple Underground',
+    discipline: 'bjj',
+  },
+  {
+    base: 'double leg high2',
+    alt: 'Wrestling training at Temple Underground',
+    discipline: 'wrestling',
+  },
+];
+
 export const heroBackgroundSlides: HeroBackgroundSlide[] = [
   {
     base: 'over_shoulder_jab',

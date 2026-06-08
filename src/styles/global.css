@@ -49,32 +49,119 @@ a {
   padding-right: 1rem;
 }
 
-/* Hero: photo → dark scrim → brand glow → content */
+/* Hero: mobile overlay on strip stack; desktop full-bleed crossfade */
 .hero-section {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(242, 242, 242, 0.1);
-  min-height: min(92vh, 52rem);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  min-height: clamp(20rem, 62vh, 36rem);
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  height: auto;
 }
 
-.hero-bg__frame {
+/* Mobile: three static discipline strips */
+.hero-bg__strips {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hero-bg__strip {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(11, 12, 14, 0.65);
+}
+
+.hero-bg__strip:last-child {
+  border-bottom: none;
+}
+
+.hero-bg__strip-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: grayscale(100%);
+  opacity: 0.48;
+}
+
+.hero-bg__strip-overlay {
   position: absolute;
   inset: 0;
+  background: rgba(11, 12, 14, 0.58);
+  pointer-events: none;
+}
+
+.hero-bg__carousel {
+  display: none;
+}
+
+.hero-bg__scrim {
+  display: block;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(11, 12, 14, 0.12) 0%,
+      rgba(11, 12, 14, 0.35) 38%,
+      rgba(11, 12, 14, 0.82) 78%,
+      rgba(11, 12, 14, 0.94) 100%
+    );
+}
+
+.hero-bg__glow {
+  display: none;
 }
 
 .hero-bg__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 28%;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: min(92vh, 52rem);
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  .hero-bg__strips {
+    display: none;
+  }
+
+  .hero-bg__carousel {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg__scrim,
+  .hero-bg__glow {
+    display: block;
+  }
+
+  .hero-bg__image {
+    object-position: center 30%;
+  }
 }
 
 /* Darken photo so wordmark + CTAs stay readable */
@@ -82,14 +169,7 @@ a {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(11, 12, 14, 0.72) 0%,
-      rgba(11, 12, 14, 0.45) 42%,
-      rgba(11, 12, 14, 0.82) 100%
-    ),
-    linear-gradient(105deg, rgba(11, 12, 14, 0.55) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 /* Brand glow on top of photo + scrim (keeps neon headline feel) */
@@ -98,22 +178,40 @@ a {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background-image:
-    radial-gradient(circle at 18% 12%, rgba(212, 175, 55, 0.2), transparent 42%),
-    radial-gradient(circle at 88% 8%, rgba(142, 30, 30, 0.28), transparent 38%),
-    radial-gradient(ellipse at 50% 100%, rgba(94, 73, 106, 0.15), transparent 50%);
+}
+
+@media (min-width: 768px) {
+  .hero-bg__scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 12, 14, 0.72) 0%,
+        rgba(11, 12, 14, 0.45) 42%,
+        rgba(11, 12, 14, 0.82) 100%
+      ),
+      linear-gradient(105deg, rgba(11, 12, 14, 0.55) 0%, transparent 55%);
+  }
+
+  .hero-bg__glow {
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(212, 175, 55, 0.2), transparent 42%),
+      radial-gradient(circle at 88% 8%, rgba(142, 30, 30, 0.28), transparent 38%),
+      radial-gradient(ellipse at 50% 100%, rgba(94, 73, 106, 0.15), transparent 50%);
+  }
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding-top: 5.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  background: transparent;
 }
 
 @media (min-width: 768px) {
   .hero-content {
+    background: transparent;
     padding-top: 6.5rem;
     padding-bottom: 4rem;
   }
@@ -123,7 +221,12 @@ a {
   }
 }
 
-/* CSS-only crossfade when multiple slides in hero-media config */
+.hero-bg__frame {
+  position: absolute;
+  inset: 0;
+}
+
+/* Desktop-only crossfade carousel */
 @keyframes hero-bg-fade {
   0%,
   20% {
@@ -138,26 +241,82 @@ a {
   }
 }
 
-.hero-bg__frame--carousel {
-  opacity: 0;
-  animation: hero-bg-fade var(--cycle-sec, 24s) infinite;
-  animation-delay: calc(var(--slide-index) * var(--slide-sec, 8s));
-}
+@media (min-width: 768px) {
+  .hero-bg__frame--carousel {
+    opacity: 0;
+    animation: hero-bg-fade var(--cycle-sec, 24s) infinite;
+    animation-delay: calc(var(--slide-index) * var(--slide-sec, 8s));
+  }
 
-.hero-bg__frame--carousel:first-child {
-  opacity: 1;
+  .hero-bg__frame--carousel:first-child {
+    opacity: 1;
+  }
 }
 
 .hero-wordmark-top {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 10vw, 5.5rem);
+  font-size: clamp(1.875rem, 7.5vw, 2.75rem);
   font-weight: 900;
-  line-height: 0.92;
-  letter-spacing: 0.06em;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-temple-snow);
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  text-shadow:
+    0 2px 12px rgba(11, 12, 14, 0.85),
+    0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 768px) {
+  .hero-wordmark-top {
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.06em;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+.hero-subtitle {
+  margin-top: 0.75rem;
+  max-width: 32rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgba(242, 242, 242, 0.88);
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: rgba(242, 242, 242, 0.9);
+  }
+}
+
+.hero-cta-stack {
+  display: flex;
+  max-width: 28rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero-cta-stack {
+    margin-top: 2rem;
+  }
+}
+
+.hero-cta-secondary {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero-cta-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 }
 
 .hero-wordmark-accent {
@@ -254,13 +413,6 @@ a {
   min-height: 2.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-}
-
-.hero-cta-stack {
-  display: flex;
-  max-width: 28rem;
-  flex-direction: column;
-  gap: 0.75rem;
 }
 
 .hero-cta-primary {

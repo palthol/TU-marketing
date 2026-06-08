@@ -1,5 +1,9 @@
 ---
-import { heroBackgroundSlides, heroSlideDurationSec } from '@/config/hero-media';
+import {
+  heroBackgroundSlides,
+  heroMobileStrips,
+  heroSlideDurationSec,
+} from '@/config/hero-media';
 
 const slides = heroBackgroundSlides;
 const multiSlide = slides.length > 1;
@@ -11,26 +15,45 @@ function heroImageSrc(base: string, width: number) {
 ---
 
 <div class="hero-bg" aria-hidden="true">
-  {slides.map((slide, index) => (
-    <div
-      class:list={['hero-bg__frame', multiSlide && 'hero-bg__frame--carousel']}
-      style={multiSlide ? `--slide-index: ${index}; --cycle-sec: ${cycleSec}s; --slide-sec: ${heroSlideDurationSec}s` : undefined}
-    >
-      <picture>
-        <source media="(min-width: 1200px)" srcset={heroImageSrc(slide.base, 1920)} type="image/webp" />
-        <source media="(min-width: 768px)" srcset={heroImageSrc(slide.base, 1200)} type="image/webp" />
-        <source srcset={heroImageSrc(slide.base, 768)} type="image/webp" />
+  <div class="hero-bg__strips">
+    {heroMobileStrips.map((strip, index) => (
+      <div class="hero-bg__strip" data-discipline={strip.discipline}>
         <img
-          class="hero-bg__image"
-          src={heroImageSrc(slide.base, 768)}
+          class="hero-bg__strip-image"
+          src={heroImageSrc(strip.base, 480)}
           alt=""
           loading={index === 0 ? 'eager' : 'lazy'}
           fetchpriority={index === 0 ? 'high' : 'low'}
           decoding="async"
         />
-      </picture>
-    </div>
-  ))}
+        <div class="hero-bg__strip-overlay"></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="hero-bg__carousel">
+    {slides.map((slide, index) => (
+      <div
+        class:list={['hero-bg__frame', multiSlide && 'hero-bg__frame--carousel']}
+        style={multiSlide ? `--slide-index: ${index}; --cycle-sec: ${cycleSec}s; --slide-sec: ${heroSlideDurationSec}s` : undefined}
+      >
+        <picture>
+          <source media="(min-width: 1200px)" srcset={heroImageSrc(slide.base, 1920)} type="image/webp" />
+          <source media="(min-width: 768px)" srcset={heroImageSrc(slide.base, 1200)} type="image/webp" />
+          <source srcset={heroImageSrc(slide.base, 768)} type="image/webp" />
+          <img
+            class="hero-bg__image"
+            src={heroImageSrc(slide.base, 768)}
+            alt=""
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'low'}
+            decoding="async"
+          />
+        </picture>
+      </div>
+    ))}
+  </div>
+
   <div class="hero-bg__scrim"></div>
   <div class="hero-bg__glow"></div>
 </div>

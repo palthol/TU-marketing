@@ -21,13 +21,13 @@ const { business } = siteConfig;
   <div class="hero-content container-shell">
     <div class="animate-fade-up hero-content__inner">
       <p class="section-eyebrow">{copy.hero.eyebrow}</p>
-      <h1 class="mt-3">
+      <h1 class="mt-2 md:mt-3">
         <span class="hero-wordmark-top block">{copy.hero.titleLine1}</span>
         <span class="hero-wordmark-top hero-wordmark-accent block">{copy.hero.titleLine2}</span>
       </h1>
-      <p class="mt-5 max-w-lg text-lg text-temple-snow/90">{copy.hero.subtitle}</p>
+      <p class="hero-subtitle hidden md:block">{copy.hero.subtitle}</p>
 
-      <div class="hero-cta-stack mt-8">
+      <div class="hero-cta-stack">
         <CtaLink
           href={trialUrl(locale)}
           event="cta_free_class"
@@ -46,25 +46,27 @@ const { business } = siteConfig;
           </span>
         </CtaLink>
 
-        <p class="hero-cta-quick-label">{copy.hero.quickContact}</p>
+        <div class="hero-cta-secondary">
+          <p class="hero-cta-quick-label">{copy.hero.quickContact}</p>
 
-        <div class="hero-cta-quick-grid">
-          <CtaLink href={`tel:${business.phoneTel}`} event="cta_call" variant="outline" class="cta-btn--block">
-            {copy.hero.call}
-          </CtaLink>
-          <CtaLink href={`sms:${business.smsTel}`} event="cta_text" variant="outline" class="cta-btn--block">
-            {copy.hero.text}
-          </CtaLink>
-          <CtaLink
-            href={business.mapUrl}
-            event="cta_directions"
-            variant="outline"
-            class="cta-btn--block"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {copy.hero.directions}
-          </CtaLink>
+          <div class="hero-cta-quick-grid">
+            <CtaLink href={`tel:${business.phoneTel}`} event="cta_call" variant="outline" class="cta-btn--block">
+              {copy.hero.call}
+            </CtaLink>
+            <CtaLink href={`sms:${business.smsTel}`} event="cta_text" variant="outline" class="cta-btn--block">
+              {copy.hero.text}
+            </CtaLink>
+            <CtaLink
+              href={business.mapUrl}
+              event="cta_directions"
+              variant="outline"
+              class="cta-btn--block"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.hero.directions}
+            </CtaLink>
+          </div>
         </div>
       </div>
     </div>
