@@ -34,8 +34,13 @@ async function createPlaceholderSource(filePath) {
   console.log('Created placeholder source:', filePath);
 }
 
+function publicImageBase(sourceBase) {
+  return sourceBase.replace(/\+/g, '-');
+}
+
 async function processImage(name) {
-  const base = path.parse(name).name;
+  const rawBase = path.parse(name).name;
+  const base = publicImageBase(rawBase);
   const sourcePath = path.join(sourceDir, name);
 
   let pipeline = sharp(sourcePath);

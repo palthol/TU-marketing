@@ -29,13 +29,20 @@
   "why": {
     "eyebrow": "Why Temple Underground",
     "title": "A complete system. A disciplined room.",
-    "description": "We teach striking and grappling together — structure, breath, and pressure under coach-led standards.",
-    "bullets": [
-      "Integrated striking and grappling — not separate silos",
-      "Coach-led progression with real competition experience",
-      "Beginner-friendly fundamentals with room for serious athletes",
-      "Structure, breath, and movement as training pillars",
-      "Community built on accountability and respect"
+    "description": "Train in a coach-led environment built around beginner-friendly fundamentals, clear progression, and practical skill development across striking, grappling, movement, and community.",
+    "cards": [
+      {
+        "title": "Integrated striking and grappling",
+        "body": "Boxing, wrestling, and Brazilian Jiu-Jitsu taught as one Vale Tudo-style system — not separate silos."
+      },
+      {
+        "title": "Breath, structure, and movement",
+        "body": "Foundational training pillars that carry into every class: breathing under pressure, solid structure, and efficient movement."
+      },
+      {
+        "title": "Community built on accountability and respect",
+        "body": "A disciplined room where partners show up for each other — clear standards, honest feedback, and shared progress."
+      }
     ],
     "mainSiteLink": "Explore programs on our main site"
   },
@@ -57,7 +64,7 @@
   },
   "pricing": {
     "eyebrow": "Pricing",
-    "title": "Simple, scannable plans",
+    "title": "Memberships built around how you train.",
     "firstClassBanner": "Your first class is completely free.",
     "dropInLabel": "Group class drop-in",
     "dropInPrice": "$20",

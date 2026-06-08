@@ -1,6 +1,6 @@
 ---
-import CtaLink from '@/components/CtaLink.astro';
-import { siteConfig } from '@/config/site';
+import WhyCardCarousel from '@/components/sections/WhyCardCarousel.astro';
+import { whyCardCarousels } from '@/config/why-media';
 import type { Dictionary } from '@/lib/i18n';
 
 interface Props {
@@ -17,22 +17,99 @@ const { copy } = Astro.props;
       {copy.why.title}
     </h2>
     <p class="mt-4 max-w-2xl text-temple-snow/80">{copy.why.description}</p>
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2">
-      {copy.why.bullets.map((bullet) => (
-        <li class="rounded-lg border border-temple-snow/10 bg-temple-charcoal/30 px-5 py-4 text-sm text-temple-snow/90">
-          {bullet}
+
+    <ul class="why-cards mt-10 grid list-none gap-6 p-0 md:grid-cols-3">
+      {copy.why.cards.map((card, index) => (
+        <li class="why-card">
+          <div class="why-card__media">
+            <WhyCardCarousel slides={whyCardCarousels[index]} label={card.title} />
+          </div>
+          <div class="why-card__body">
+            <h3 class="why-card__title">{card.title}</h3>
+            <p class="why-card__text">{card.body}</p>
+          </div>
         </li>
       ))}
     </ul>
-    <CtaLink
-      href={siteConfig.urls.primaryWebsite}
-      event="cta_main_site"
-      variant="link"
-      class="mt-8"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {copy.why.mainSiteLink} →
-    </CtaLink>
   </div>
 </section>
+
+<script>
+  function initWhyCarousels() {
+    document.querySelectorAll('.why-carousel').forEach((root) => {
+      if (root.dataset.initialized === 'true') return;
+
+      const viewport = root.querySelector('.why-carousel__viewport');
+      const slideEls = root.querySelectorAll('.why-carousel__slide');
+      const dots = root.querySelectorAll('.why-carousel__dot');
+      const prevBtn = root.querySelector('.why-carousel__arrow--prev');
+      const nextBtn = root.querySelector('.why-carousel__arrow--next');
+
+      if (!viewport || slideEls.length === 0) return;
+
+      root.dataset.initialized = 'true';
+
+      const setActive = (index) => {
+        const clamped = Math.max(0, Math.min(index, slideEls.length - 1));
+        slideEls.forEach((slide, i) => {
+          slide.setAttribute('aria-hidden', i === clamped ? 'false' : 'true');
+        });
+        dots.forEach((dot, i) => {
+          const active = i === clamped;
+          dot.classList.toggle('is-active', active);
+          dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        if (prevBtn) prevBtn.disabled = clamped <= 0;
+        if (nextBtn) nextBtn.disabled = clamped >= slideEls.length - 1;
+      };
+
+      const getIndex = () => {
+        const slideWidth = viewport.clientWidth;
+        if (!slideWidth) return 0;
+        return Math.round(viewport.scrollLeft / slideWidth);
+      };
+
+      const scrollToIndex = (index) => {
+        const clamped = Math.max(0, Math.min(index, slideEls.length - 1));
+        viewport.scrollTo({ left: clamped * viewport.clientWidth, behavior: 'smooth' });
+        setActive(clamped);
+      };
+
+      let scrollTimer;
+      viewport.addEventListener(
+        'scroll',
+        () => {
+          if (scrollTimer) clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => setActive(getIndex()), 60);
+        },
+        { passive: true },
+      );
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          scrollToIndex(Number(dot.dataset.index ?? 0));
+        });
+      });
+
+      prevBtn?.addEventListener('click', () => scrollToIndex(getIndex() - 1));
+      nextBtn?.addEventListener('click', () => scrollToIndex(getIndex() + 1));
+
+      viewport.addEventListener('keydown', (event) => {
+        const current = getIndex();
+        if (event.key === 'ArrowRight' && current < slideEls.length - 1) {
+          event.preventDefault();
+          scrollToIndex(current + 1);
+        }
+        if (event.key === 'ArrowLeft' && current > 0) {
+          event.preventDefault();
+          scrollToIndex(current - 1);
+        }
+      });
+
+      setActive(0);
+    });
+  }
+
+  initWhyCarousels();
+  document.addEventListener('astro:page-load', initWhyCarousels);
+</script>

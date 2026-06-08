@@ -29,13 +29,20 @@
   "why": {
     "eyebrow": "Por qué Temple Underground",
     "title": "Un sistema completo. Un ambiente disciplinado.",
-    "description": "Enseñamos striking y grappling juntos — estructura, respiración y presión bajo estándares de coaches.",
-    "bullets": [
-      "Striking y grappling integrados — no en silos separados",
-      "Progresión guiada por coaches con experiencia en competición",
-      "Fundamentos accesibles para principiantes y atletas serios",
-      "Estructura, respiración y movimiento como pilares",
-      "Comunidad basada en responsabilidad y respeto"
+    "description": "Entrena en un ambiente guiado por coaches, con fundamentos accesibles para principiantes, progresión clara y desarrollo práctico en striking, grappling, movimiento y comunidad.",
+    "cards": [
+      {
+        "title": "Striking y grappling integrados",
+        "body": "Boxeo, lucha y Jiu-Jitsu brasileño enseñados como un solo sistema estilo Vale Tudo — no en silos separados."
+      },
+      {
+        "title": "Respiración, estructura y movimiento",
+        "body": "Pilares fundamentales que se aplican en cada clase: respiración bajo presión, estructura sólida y movimiento eficiente."
+      },
+      {
+        "title": "Comunidad basada en responsabilidad y respeto",
+        "body": "Un ambiente disciplinado donde los compañeros se apoyan — estándares claros, retroalimentación honesta y progreso compartido."
+      }
     ],
     "mainSiteLink": "Ver programas en nuestro sitio principal"
   },
@@ -57,7 +64,7 @@
   },
   "pricing": {
     "eyebrow": "Precios",
-    "title": "Planes claros y fáciles de leer",
+    "title": "Membresías adaptadas a tu entrenamiento.",
     "firstClassBanner": "Tu primera clase es completamente gratis.",
     "dropInLabel": "Clase grupal suelta",
     "dropInPrice": "$20",

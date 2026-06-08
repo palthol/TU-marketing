@@ -1,0 +1,92 @@
+---
+import { whyImageSrc, type WhyCardSlide } from '@/config/why-media';
+
+interface Props {
+  slides: WhyCardSlide[];
+  label: string;
+}
+
+const { slides, label } = Astro.props;
+---
+
+<div class="why-carousel">
+  <div class="why-carousel__frame">
+    {slides.length > 1 && (
+      <>
+        <button
+          type="button"
+          class="why-carousel__arrow why-carousel__arrow--prev"
+          aria-label={`Previous ${label} slide`}
+          data-direction="prev"
+          disabled
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path
+              d="M11.25 3.75 6.75 9l4.5 5.25"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="why-carousel__arrow why-carousel__arrow--next"
+          aria-label={`Next ${label} slide`}
+          data-direction="next"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path
+              d="M6.75 3.75 11.25 9l-4.5 5.25"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </>
+    )}
+
+    <div
+      class="why-carousel__viewport"
+      tabindex="0"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+    >
+      <ul class="why-carousel__track">
+        {slides.map((slide, index) => (
+          <li class="why-carousel__slide" aria-hidden={index === 0 ? 'false' : 'true'}>
+            <picture>
+              <source media="(min-width: 768px)" srcset={whyImageSrc(slide.base, 768)} type="image/webp" />
+              <source srcset={whyImageSrc(slide.base, 480)} type="image/webp" />
+              <img
+                class="why-carousel__image"
+                src={whyImageSrc(slide.base, 480)}
+                alt={slide.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                draggable="false"
+              />
+            </picture>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  {slides.length > 1 && (
+    <div class="why-carousel__dots" role="tablist" aria-label={`${label} slides`}>
+      {slides.map((_, index) => (
+        <button
+          type="button"
+          class:list={['why-carousel__dot', index === 0 && 'is-active']}
+          role="tab"
+          aria-label={`Slide ${index + 1} of ${slides.length}`}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          data-index={index}
+        />
+      ))}
+    </div>
+  )}
+</div>
