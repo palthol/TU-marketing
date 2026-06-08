@@ -25,7 +25,7 @@ export const heroMobileStrips: HeroMobileStrip[] = [
     discipline: 'boxing',
   },
   {
-    base: 'bullfight',
+    base: 'grappling',
     alt: 'Brazilian Jiu-Jitsu training at Temple Underground',
     discipline: 'bjj',
   },
@@ -42,27 +42,27 @@ export const heroBackgroundSlides: HeroBackgroundSlide[] = [
     alt: 'Boxing training at Temple Underground',
   },
   {
-    base: 'bullfight',
-    alt: 'Sparring at Temple Underground',
+    base: 'grappling',
+    alt: 'Grappling at Temple Underground',
   },
   {
-    base: 'stance 1 backup',
-    alt: 'Fighter stance at Temple Underground',
+    base: 'striking',
+    alt: 'Striking training at Temple Underground',
   },
   {
     base: 'double leg high2',
     alt: 'Grappling and takedown training at Temple Underground',
   },
   {
-    base: 'IMG_1625',
+    base: 'sweep from guard',
     alt: 'Training session at Temple Underground',
   },
   {
-    base: 'IMG_1644',
+    base: 'guard passing',
     alt: 'Temple Underground gym atmosphere',
   },
   {
-    base: 'IMG_1646',
+    base: 'structure',
     alt: 'Athletes training at Temple Underground',
   },
 ];
