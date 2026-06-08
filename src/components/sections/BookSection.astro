@@ -1,0 +1,127 @@
+---
+import LeadForm from '@/islands/LeadForm';
+import { siteConfig } from '@/config/site';
+import { resolveLeadApiUrl } from '@/lib/lead';
+import type { Dictionary } from '@/lib/i18n';
+
+interface Props {
+  copy: Dictionary;
+}
+
+const { copy } = Astro.props;
+const { business } = siteConfig;
+const book = copy.book;
+const leadApiUrl = resolveLeadApiUrl(import.meta.env.PUBLIC_LEAD_API_URL);
+---
+
+<section class="book-section py-16 md:py-20">
+  <div class="container-shell">
+    <div class="book-section__grid">
+      <article class="book-panel">
+        <p class="section-eyebrow">{copy.hero.firstClassFree}</p>
+        <h1 class="mt-2 text-3xl font-bold text-temple-snow md:text-4xl">{book.title}</h1>
+        <p class="mt-4 max-w-xl text-temple-snow/80">{book.description}</p>
+
+        <div class="mt-8">
+          <LeadForm
+            client:load
+            copy={{
+              title: book.title,
+              description: book.description,
+              offerBadge: book.offerBadge,
+              fields: book.fields,
+              goals: book.goals,
+              submit: book.submit,
+              submitting: book.submitting,
+              success: book.success,
+              errorGeneric: book.errorGeneric,
+              errorApi: book.errorApi,
+              errorUnavailable: book.errorUnavailable,
+              validation: book.validation,
+            }}
+            apiUrl={leadApiUrl}
+            phoneDisplay={business.phone}
+            phoneTel={business.phoneTel}
+          />
+        </div>
+      </article>
+
+      <aside class="book-sidebar">
+        <article class="book-panel">
+          <h2 class="book-panel__title">{book.sidebar.visitContactTitle}</h2>
+
+          <div class="book-panel__section">
+            <address class="book-panel__address not-italic">
+              <p class="book-panel__text">{business.addressLine1}</p>
+              <p class="book-panel__text">{copy.address.line2}</p>
+              <p class="book-panel__text">{business.cityStateZip}</p>
+            </address>
+            <a
+              href={business.mapUrl}
+              class="book-panel__link focus-ring"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="cta_directions"
+            >
+              {book.sidebar.mapLink}
+            </a>
+          </div>
+
+          <hr class="book-panel__divider" />
+
+          <div class="book-panel__section">
+            <p class="book-panel__section-label">{book.sidebar.contactLabel}</p>
+            <div class="book-contact-actions">
+              <a
+                href={`tel:${business.phoneTel}`}
+                class="book-contact-btn focus-ring"
+                data-track="cta_call"
+              >
+                <span class="book-contact-btn__label">{book.sidebar.callOrText}</span>
+                <span class="book-contact-btn__value">{business.phone}</span>
+              </a>
+              <a
+                href={`mailto:${business.email}`}
+                class="book-contact-btn focus-ring"
+                data-track="cta_email"
+              >
+                <span class="book-contact-btn__label">{copy.cta.email}</span>
+                <span class="book-contact-btn__value">{business.email}</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-panel">
+          <h2 class="book-panel__title">{book.sidebar.bringTitle}</h2>
+          <ul class="book-checklist" role="list">
+            {book.sidebar.bringRequired.map((item) => (
+              <li class="book-checklist__item">
+                <span class="book-checklist__mark" aria-hidden="true"></span>
+                <span class="book-checklist__text">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="book-checklist__group-label">{book.sidebar.bringOptionalLabel}</p>
+          <ul class="book-checklist book-checklist--optional" role="list">
+            {book.sidebar.bringOptional.map((item) => (
+              <li class="book-checklist__item">
+                <span class="book-checklist__mark book-checklist__mark--optional" aria-hidden="true"></span>
+                <span class="book-checklist__text">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="book-panel">
+          <h2 class="book-panel__title">{book.sidebar.etiquetteTitle}</h2>
+          <ul class="book-panel__list">
+            {book.sidebar.etiquetteItems.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </aside>
+    </div>
+  </div>
+</section>

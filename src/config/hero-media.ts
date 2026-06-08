@@ -12,8 +12,32 @@ export type HeroBackgroundSlide = {
 
 export const heroBackgroundSlides: HeroBackgroundSlide[] = [
   {
-    base: 'hero-bg',
-    alt: 'Temple Underground training atmosphere',
+    base: 'over_shoulder_jab',
+    alt: 'Boxing training at Temple Underground',
+  },
+  {
+    base: 'bullfight',
+    alt: 'Sparring at Temple Underground',
+  },
+  {
+    base: 'stance 1 backup',
+    alt: 'Fighter stance at Temple Underground',
+  },
+  {
+    base: 'double leg high2',
+    alt: 'Grappling and takedown training at Temple Underground',
+  },
+  {
+    base: 'IMG_1625',
+    alt: 'Training session at Temple Underground',
+  },
+  {
+    base: 'IMG_1644',
+    alt: 'Temple Underground gym atmosphere',
+  },
+  {
+    base: 'IMG_1646',
+    alt: 'Athletes training at Temple Underground',
   },
 ];
 

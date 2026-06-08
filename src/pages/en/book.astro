@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import BookSection from '@/components/sections/BookSection.astro';
+import StickyCTA from '@/components/layout/StickyCTA.astro';
+import { siteConfig } from '@/config/site';
+import { t } from '@/lib/i18n';
+import { localePath, trialUrl } from '@/lib/urls';
+
+const locale = 'en';
+const copy = t(locale);
+---
+
+<BaseLayout
+  title={copy.book.seo.title}
+  description={copy.book.seo.description}
+  locale={locale}
+  canonicalPath="/en/book/"
+  alternatePath="/book"
+>
+  <Header locale={locale} copy={copy} />
+  <main>
+    <BookSection copy={copy} />
+  </main>
+  <Footer locale={locale} copy={copy} />
+  <StickyCTA
+    label={copy.cta.stickyLabel}
+    trialHref={trialUrl(locale)}
+    phoneHref={`tel:${siteConfig.business.phoneTel}`}
+    callLabel={copy.cta.call}
+  />
+</BaseLayout>

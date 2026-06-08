@@ -1,11 +1,17 @@
 # dependencies
 node_modules/
 
-# build
+# build output
 dist/
 .astro/
 
-# env
+# vite (used by Astro)
+.vite/
+
+# typescript
+*.tsbuildinfo
+
+# env & secrets
 .env
 .env.*
 !.env.example
@@ -13,9 +19,27 @@ dist/
 # vercel
 .vercel
 
+# testing & coverage
+coverage/
+
+# caches
+.cache/
+.turbo/
+
+# logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
 # os
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# logs
-*.log
+# editors (local overrides only; keep shared workspace settings if committed)
+.idea/
+*.swp
+*.swo
+*~

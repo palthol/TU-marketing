@@ -6,19 +6,18 @@ const primarySiteFromEnv =
 export const siteConfig = {
   business: {
     name: 'Temple Underground',
-    phone: '(423) 555-0100',
-    phoneTel: '+14235550100',
-    smsTel: '+14235550100',
-    email: 'hello@templeunderground.com',
-    addressLine1: 'Morristown Training Area',
-    cityStateZip: 'Morristown, Tennessee',
+    phone: '(423) 523-9167',
+    phoneTel: '+14235239167',
+    smsTel: '+14235239167',
+    email: 'templeundergroundhq@gmail.com',
+    addressLine1: '1810 Ivy Lane',
+    cityStateZip: 'Morristown, TN 37814',
     mapUrl:
-      'https://www.google.com/maps/search/?api=1&query=Temple+Underground+Morristown+Tennessee',
+      'https://www.google.com/maps/search/?api=1&query=1810+Ivy+Lane+Morristown+TN+37814',
   },
   urls: {
     primaryWebsite:
       primarySiteFromEnv || 'https://templeunderground.com',
-    trialPath: '/contact',
   },
   socials: {
     instagram: 'https://instagram.com/templeunderground',

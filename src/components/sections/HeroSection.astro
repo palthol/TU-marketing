@@ -28,18 +28,22 @@ const { business } = siteConfig;
       <p class="mt-5 max-w-lg text-lg text-temple-snow/90">{copy.hero.subtitle}</p>
 
       <div class="hero-cta-stack mt-8">
-        <p class="hero-cta-badge">
-          <span class="hero-cta-badge-dot" aria-hidden="true"></span>
-          {copy.hero.firstClassFree}
-        </p>
-
         <CtaLink
           href={trialUrl(locale)}
           event="cta_free_class"
           variant="primary"
-          class="cta-btn--block"
+          class="cta-btn--block hero-cta-primary"
         >
-          {copy.hero.bookTrial}
+          <span class="hero-cta-primary__offer">
+            <span class="hero-cta-primary__dot" aria-hidden="true"></span>
+            {copy.hero.firstClassFree}
+          </span>
+          <span class="hero-cta-primary__action">
+            {copy.hero.bookTrial}
+            <svg class="hero-cta-primary__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </CtaLink>
 
         <p class="hero-cta-quick-label">{copy.hero.quickContact}</p>

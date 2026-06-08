@@ -4,7 +4,8 @@ export type AnalyticsEvent =
   | 'cta_email'
   | 'cta_directions'
   | 'cta_free_class'
-  | 'cta_main_site';
+  | 'cta_main_site'
+  | 'lead_submit';
 
 const UTM_STORAGE_KEY = 'tu_utm_campaign';
 

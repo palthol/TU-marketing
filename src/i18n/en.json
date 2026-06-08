@@ -11,6 +11,9 @@
     "mainSite": "Full website",
     "langSwitch": "Español"
   },
+  "address": {
+    "line2": "Located behind the fire station"
+  },
   "hero": {
     "eyebrow": "Morristown, Tennessee",
     "titleLine1": "Temple Underground",
@@ -91,5 +94,74 @@
   "footer": {
     "rights": "All rights reserved.",
     "location": "Morristown, Tennessee"
+  },
+  "book": {
+    "seo": {
+      "title": "Book Your Free Class | Temple Underground",
+      "description": "Reserve your free first class at Temple Underground in Morristown, TN. Tell us your goals and schedule — we will match you with the right training."
+    },
+    "title": "Book your free class",
+    "description": "Tell us your goals and when you would like to train. We will reach out to confirm your first visit and place you in the right class.",
+    "offerBadge": "First class free",
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "contactNote": "Email or phone number required.",
+      "goal": "Primary goal",
+      "preferredTime": "Preferred training time",
+      "preferredTimePlaceholder": "e.g. Weekday evenings",
+      "notes": "Notes (optional)"
+    },
+    "goals": {
+      "first-class": "First class / beginner start",
+      "fitness-confidence": "Fitness and confidence",
+      "competition": "Competition development",
+      "weight-management": "Weight management",
+      "youth-inquiry": "Youth training inquiry"
+    },
+    "submit": "Send my request",
+    "submitting": "Sending…",
+    "success": "Thanks — we received your request and will reach out shortly.",
+    "errorGeneric": "Something went wrong. Please try again or call us.",
+    "errorApi": "We could not send your request right now. Please call or text us directly.",
+    "errorUnavailable": "Online booking is temporarily unavailable. Call us at {phone}.",
+    "validation": {
+      "firstNameRequired": "Please enter your first name.",
+      "lastNameRequired": "Please enter your last name.",
+      "emailInvalid": "Please enter a valid email.",
+      "phoneInvalid": "Enter a complete 10-digit phone number.",
+      "contactRequired": "Email or phone number required.",
+      "goalRequired": "Please select a goal.",
+      "timeRequired": "Tell us when you would like to train.",
+      "notesTooLong": "Please keep notes under 500 characters."
+    },
+    "sidebar": {
+      "visitContactTitle": "Location & contact",
+      "contactLabel": "Reach us directly",
+      "callOrText": "Call or text",
+      "mapLink": "Open in Maps",
+      "bringTitle": "What to bring",
+      "bringOptionalLabel": "Optional",
+      "bringRequired": [
+        "Athletic shirt or t-shirt",
+        "Athletic shorts or shorts",
+        "Water"
+      ],
+      "bringOptional": [
+        "Headgear",
+        "Boxing gloves",
+        "Hand wraps",
+        "Mouthpiece",
+        "BJJ or judo gi / kimono"
+      ],
+      "etiquetteTitle": "Gym etiquette",
+      "etiquetteItems": [
+        "Arrive on time and check in with your coach",
+        "Keep training areas clean and equipment organized",
+        "Respect partners and communicate intensity clearly"
+      ]
+    }
   }
 }

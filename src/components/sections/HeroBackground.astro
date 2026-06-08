@@ -4,6 +4,10 @@ import { heroBackgroundSlides, heroSlideDurationSec } from '@/config/hero-media'
 const slides = heroBackgroundSlides;
 const multiSlide = slides.length > 1;
 const cycleSec = heroSlideDurationSec * slides.length;
+
+function heroImageSrc(base: string, width: number) {
+  return `/images/${encodeURIComponent(base)}-${width}.webp`;
+}
 ---
 
 <div class="hero-bg" aria-hidden="true">
@@ -13,12 +17,12 @@ const cycleSec = heroSlideDurationSec * slides.length;
       style={multiSlide ? `--slide-index: ${index}; --cycle-sec: ${cycleSec}s; --slide-sec: ${heroSlideDurationSec}s` : undefined}
     >
       <picture>
-        <source media="(min-width: 1200px)" srcset={`/images/${slide.base}-1920.webp`} type="image/webp" />
-        <source media="(min-width: 768px)" srcset={`/images/${slide.base}-1200.webp`} type="image/webp" />
-        <source srcset={`/images/${slide.base}-768.webp`} type="image/webp" />
+        <source media="(min-width: 1200px)" srcset={heroImageSrc(slide.base, 1920)} type="image/webp" />
+        <source media="(min-width: 768px)" srcset={heroImageSrc(slide.base, 1200)} type="image/webp" />
+        <source srcset={heroImageSrc(slide.base, 768)} type="image/webp" />
         <img
           class="hero-bg__image"
-          src={`/images/${slide.base}-768.webp`}
+          src={heroImageSrc(slide.base, 768)}
           alt=""
           loading={index === 0 ? 'eager' : 'lazy'}
           fetchpriority={index === 0 ? 'high' : 'low'}

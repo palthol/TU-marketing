@@ -3,6 +3,7 @@
 interface ImportMetaEnv {
   readonly PUBLIC_PLAUSIBLE_DOMAIN?: string;
   readonly PUBLIC_PRIMARY_SITE_URL?: string;
+  readonly PUBLIC_LEAD_API_URL?: string;
 }
 
 interface ImportMeta {

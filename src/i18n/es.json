@@ -11,6 +11,9 @@
     "mainSite": "Sitio completo",
     "langSwitch": "English"
   },
+  "address": {
+    "line2": "Ubicado detrás de la estación de bomberos"
+  },
   "hero": {
     "eyebrow": "Morristown, Tennessee",
     "titleLine1": "Temple Underground",
@@ -91,5 +94,74 @@
   "footer": {
     "rights": "Todos los derechos reservados.",
     "location": "Morristown, Tennessee"
+  },
+  "book": {
+    "seo": {
+      "title": "Reserva tu clase gratis | Temple Underground",
+      "description": "Reserva tu primera clase gratis en Temple Underground en Morristown, TN. Cuéntanos tus metas y horario — te ubicamos en la clase correcta."
+    },
+    "title": "Reserva tu clase gratis",
+    "description": "Cuéntanos tus metas y cuándo te gustaría entrenar. Te contactaremos para confirmar tu primera visita y ubicarte en la clase adecuada.",
+    "offerBadge": "Primera clase gratis",
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "contactNote": "Correo o teléfono requerido.",
+      "goal": "Meta principal",
+      "preferredTime": "Horario preferido",
+      "preferredTimePlaceholder": "ej. tardes entre semana",
+      "notes": "Notas (opcional)"
+    },
+    "goals": {
+      "first-class": "Primera clase / principiante",
+      "fitness-confidence": "Fitness y confianza",
+      "competition": "Desarrollo competitivo",
+      "weight-management": "Control de peso",
+      "youth-inquiry": "Consulta entrenamiento juvenil"
+    },
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando…",
+    "success": "Gracias — recibimos tu solicitud y te contactaremos pronto.",
+    "errorGeneric": "Algo salió mal. Intenta de nuevo o llámanos.",
+    "errorApi": "No pudimos enviar tu solicitud. Llámanos o envíanos un mensaje.",
+    "errorUnavailable": "La reserva en línea no está disponible. Llámanos al {phone}.",
+    "validation": {
+      "firstNameRequired": "Ingresa tu nombre.",
+      "lastNameRequired": "Ingresa tu apellido.",
+      "emailInvalid": "Ingresa un correo válido.",
+      "phoneInvalid": "Ingresa un número de teléfono completo de 10 dígitos.",
+      "contactRequired": "Correo o teléfono requerido.",
+      "goalRequired": "Selecciona una meta.",
+      "timeRequired": "Indica cuándo te gustaría entrenar.",
+      "notesTooLong": "Mantén las notas bajo 500 caracteres."
+    },
+    "sidebar": {
+      "visitContactTitle": "Ubicación y contacto",
+      "contactLabel": "Contáctanos directamente",
+      "callOrText": "Llamar o escribir",
+      "mapLink": "Abrir en Maps",
+      "bringTitle": "Qué traer",
+      "bringOptionalLabel": "Opcional",
+      "bringRequired": [
+        "Camiseta deportiva o playera",
+        "Shorts atléticos o shorts",
+        "Agua"
+      ],
+      "bringOptional": [
+        "Protector de cabeza",
+        "Guantes de boxeo",
+        "Vendas",
+        "Protector bucal",
+        "Gi / kimono de BJJ o judo"
+      ],
+      "etiquetteTitle": "Etiqueta del gym",
+      "etiquetteItems": [
+        "Llega a tiempo y regístrate con tu coach",
+        "Mantén limpias las áreas y el equipo organizado",
+        "Respeta a tus compañeros y comunica la intensidad"
+      ]
+    }
   }
 }

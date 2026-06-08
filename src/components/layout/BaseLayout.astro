@@ -3,21 +3,24 @@ import '@/styles/global.css';
 import { siteConfig } from '@/config/site';
 import type { Locale } from '@/lib/i18n';
 import { locales } from '@/lib/i18n';
+import { localePath } from '@/lib/urls';
 
 interface Props {
   title: string;
   description: string;
   locale: Locale;
   canonicalPath: string;
+  /** Path segment after locale, e.g. `/book` for localized book pages */
+  alternatePath?: string;
 }
 
-const { title, description, locale, canonicalPath } = Astro.props;
+const { title, description, locale, canonicalPath, alternatePath = '' } = Astro.props;
 const site = Astro.site ?? new URL('https://go.templeunderground.com');
 const canonical = new URL(canonicalPath, site).href;
 
 const alternates = locales.map((loc) => ({
   locale: loc,
-  href: new URL(`/${loc}/`, site).href,
+  href: new URL(`${localePath(loc, alternatePath ?? '')}/`, site).href,
 }));
 
 const plausibleDomain = siteConfig.analytics.plausibleDomain;
