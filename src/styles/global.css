@@ -380,46 +380,55 @@ a {
 }
 
 .why-carousel__arrow {
-  display: none;
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 1px solid rgba(242, 242, 242, 0.2);
+  border-radius: 9999px;
+  background: rgba(11, 12, 14, 0.72);
+  color: var(--color-temple-snow);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.why-carousel__arrow:hover:not(:disabled) {
+  background: rgba(11, 12, 14, 0.9);
+  border-color: rgba(228, 183, 68, 0.45);
+  color: var(--color-temple-accent);
+}
+
+.why-carousel__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.why-carousel__arrow:focus-visible {
+  outline: 2px solid var(--color-temple-accent);
+  outline-offset: 2px;
+}
+
+.why-carousel__arrow--prev {
+  left: 0.375rem;
+}
+
+.why-carousel__arrow--next {
+  right: 0.375rem;
 }
 
 @media (min-width: 768px) {
   .why-carousel__arrow {
-    display: inline-flex;
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
     width: 2rem;
     height: 2rem;
-    padding: 0;
-    border: 1px solid rgba(242, 242, 242, 0.2);
-    border-radius: 9999px;
-    background: rgba(11, 12, 14, 0.72);
-    color: var(--color-temple-snow);
-    cursor: pointer;
-    transform: translateY(-50%);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease,
-      opacity 0.15s ease;
-  }
-
-  .why-carousel__arrow:hover:not(:disabled) {
-    background: rgba(11, 12, 14, 0.9);
-    border-color: rgba(228, 183, 68, 0.45);
-    color: var(--color-temple-accent);
-  }
-
-  .why-carousel__arrow:disabled {
-    opacity: 0.35;
-    cursor: default;
-  }
-
-  .why-carousel__arrow:focus-visible {
-    outline: 2px solid var(--color-temple-accent);
-    outline-offset: 2px;
   }
 
   .why-carousel__arrow--prev {
@@ -524,6 +533,59 @@ a {
 
   .why-card__title {
     font-size: 1.0625rem;
+  }
+}
+
+/* Pricing — monthly memberships divider */
+.pricing-monthly-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.875rem;
+}
+
+.pricing-monthly-intro__divider {
+  height: 1px;
+  background: rgba(242, 242, 242, 0.12);
+}
+
+.pricing-monthly-intro__content {
+  text-align: center;
+  padding-inline: 0.5rem;
+}
+
+.pricing-monthly-intro__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-temple-snow);
+}
+
+.pricing-monthly-intro__note {
+  margin: 0.5rem 0 0;
+  max-width: 32rem;
+  margin-inline: auto;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(242, 242, 242, 0.75);
+}
+
+@media (min-width: 768px) {
+  .pricing-monthly-intro {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .pricing-monthly-intro__divider {
+    flex: 1 1 0;
+    min-width: 2rem;
+  }
+
+  .pricing-monthly-intro__content {
+    flex: 0 1 auto;
+    max-width: 28rem;
+    padding-inline: 0.25rem;
   }
 }
 

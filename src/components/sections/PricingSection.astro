@@ -18,16 +18,19 @@ const tiers = [copy.pricing.tier100, copy.pricing.tier150, copy.pricing.tier200]
       {copy.pricing.firstClassBanner}
     </p>
 
-    <div class="mt-8 grid gap-6 md:grid-cols-2">
-      <article class="rounded-xl border border-temple-snow/10 p-6">
-        <h3 class="text-lg font-semibold">{copy.pricing.dropInLabel}</h3>
-        <p class="mt-2 text-4xl font-bold text-temple-accent">{copy.pricing.dropInPrice}</p>
-        <p class="mt-2 text-sm text-temple-snow/75">{copy.pricing.dropInDetail}</p>
-      </article>
-      <article class="rounded-xl border border-temple-snow/10 p-6 md:col-span-1">
-        <h3 class="text-lg font-semibold">{copy.pricing.monthlyTitle}</h3>
-        <p class="mt-2 text-sm text-temple-snow/75">{copy.pricing.monthlyNote}</p>
-      </article>
+    <article class="mt-8 max-w-md rounded-xl border border-temple-snow/10 p-6">
+      <h3 class="text-lg font-semibold">{copy.pricing.dropInLabel}</h3>
+      <p class="mt-2 text-4xl font-bold text-temple-accent">{copy.pricing.dropInPrice}</p>
+      <p class="mt-2 text-sm text-temple-snow/75">{copy.pricing.dropInDetail}</p>
+    </article>
+
+    <div class="pricing-monthly-intro mt-10">
+      <div class="pricing-monthly-intro__divider" aria-hidden="true"></div>
+      <div class="pricing-monthly-intro__content">
+        <h3 class="pricing-monthly-intro__title">{copy.pricing.monthlyTitle}</h3>
+        <p class="pricing-monthly-intro__note">{copy.pricing.monthlyNote}</p>
+      </div>
+      <div class="pricing-monthly-intro__divider" aria-hidden="true"></div>
     </div>
 
     <div class="mt-6 grid gap-4 md:grid-cols-3">

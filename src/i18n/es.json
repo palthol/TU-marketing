@@ -48,8 +48,7 @@
   },
   "schedule": {
     "eyebrow": "Horario",
-    "title": "Entrena según tu horario",
-    "description": "Bloques entre semana para adultos y niños, más open mat dominical para más tiempo en el tatami.",
+    "title": "Adultos, niños y open mat dominical",
     "adultsLabel": "Clases para adultos",
     "adultsWhen": "Lunes a jueves",
     "adultsTimes": ["7:00 AM – 9:00 AM", "4:00 PM – 6:00 PM", "7:00 PM – 9:00 PM"],
@@ -64,7 +63,7 @@
   },
   "pricing": {
     "eyebrow": "Precios",
-    "title": "Membresías adaptadas a tu entrenamiento.",
+    "title": "Membresías según la frecuencia con la que entrenas.",
     "firstClassBanner": "Tu primera clase es completamente gratis.",
     "dropInLabel": "Clase grupal suelta",
     "dropInPrice": "$20",
@@ -89,7 +88,7 @@
   },
   "cta": {
     "eyebrow": "Comienza hoy",
-    "title": "Toma tu clase gratis",
+    "title": "Agenda tu clase gratis",
     "description": "Llama, envía mensaje o escribe — o reserva en línea. Te ayudamos a elegir la clase correcta.",
     "call": "Llamar",
     "text": "Mensaje",

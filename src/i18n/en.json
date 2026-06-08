@@ -48,8 +48,7 @@
   },
   "schedule": {
     "eyebrow": "Schedule",
-    "title": "Train on your schedule",
-    "description": "Weekday blocks for adults and kids, plus Sunday open mat for extra mat time.",
+    "title": "Adults, kids, and Sunday open mat",
     "adultsLabel": "Adult classes",
     "adultsWhen": "Monday–Thursday",
     "adultsTimes": ["7:00 AM – 9:00 AM", "4:00 PM – 6:00 PM", "7:00 PM – 9:00 PM"],
@@ -64,7 +63,7 @@
   },
   "pricing": {
     "eyebrow": "Pricing",
-    "title": "Memberships built around how you train.",
+    "title": "Memberships built around how often you train.",
     "firstClassBanner": "Your first class is completely free.",
     "dropInLabel": "Group class drop-in",
     "dropInPrice": "$20",
@@ -89,7 +88,7 @@
   },
   "cta": {
     "eyebrow": "Get started",
-    "title": "Take your free class",
+    "title": "Schedule your free class",
     "description": "Call, text, or email — or book online. We will help you pick the right class.",
     "call": "Call",
     "text": "Text",
